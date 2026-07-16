@@ -4,137 +4,176 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Muhammad Shalihin — Builder & Lab Technologist</title>
-<meta name="description" content="Muhammad Shalihin — Singapore-based builder, IT infrastructure specialist at NUS School of Computing. Projects in web, mobile, and Islamic tech."/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&display=swap" rel="stylesheet">
+<meta name="description" content="Muhammad Shalihin — Singapore-based builder and IT infrastructure specialist at NUS School of Computing. AWS SAA certified. Projects in web, mobile, and Islamic tech."/>
+<meta property="og:title" content="Muhammad Shalihin — Builder & Lab Technologist"/>
+<meta property="og:description" content="Singapore-based builder and infrastructure specialist. AWS SAA certified."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://hashashino.github.io"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0a0a0a;--ink:#f5f1e8;--muted:#6b6560;
-    --accent:#ff5722;--accent2:#d4ff00;
-    --green:#4ade80;--line:rgba(245,241,232,0.08);
-    --panel:#111111;--panel2:#181818;
+    --bg:#0b0a09;--ink:#f2ede3;--muted:#8a837a;--faint:#565049;
+    --accent:#ff5a1f;--green:#3fd97e;--amber:#e8c547;
+    --line:rgba(242,237,227,0.09);--line-strong:rgba(242,237,227,0.18);
+    --panel:#12100e;--panel-hover:#171412;
     --mono:'JetBrains Mono',monospace;
     --serif:'Fraunces',serif;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  body{background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:14px;line-height:1.6;
-    background-image:radial-gradient(ellipse 80% 40% at 50% -5%,rgba(255,87,34,0.06),transparent);}
-  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+  ::selection{background:var(--accent);color:#fff;}
+  body{
+    background:var(--bg);color:var(--ink);font-family:var(--mono);
+    font-size:14px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  .bg-glow{
+    position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(ellipse 70% 35% at 50% -8%,rgba(255,90,31,0.09),transparent 70%),
+      radial-gradient(ellipse 40% 30% at 90% 110%,rgba(255,90,31,0.04),transparent 70%);
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 28px;position:relative;z-index:1;}
+  a{color:inherit;}
 
   /* NAV */
-  nav{border-bottom:1px solid var(--line);padding:18px 0;position:sticky;top:0;
-    background:rgba(10,10,10,0.92);backdrop-filter:blur(8px);z-index:100;}
-  nav .inner{max-width:960px;margin:0 auto;padding:0 24px;
-    display:flex;align-items:center;justify-content:space-between;}
-  nav .name{font-family:var(--serif);font-weight:700;font-size:16px;font-style:italic;
-    color:var(--ink);text-decoration:none;}
-  nav .name span{color:var(--accent);}
-  nav ul{list-style:none;display:flex;gap:24px;}
-  nav ul a{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);
-    text-decoration:none;transition:color 0.15s;}
+  nav{
+    border-bottom:1px solid var(--line);padding:16px 0;position:sticky;top:0;z-index:100;
+    background:rgba(11,10,9,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  }
+  nav .inner{max-width:880px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;}
+  nav .name{font-family:var(--serif);font-style:italic;font-weight:600;font-size:17px;text-decoration:none;letter-spacing:-0.01em;}
+  nav .name em{color:var(--accent);font-style:italic;}
+  nav ul{list-style:none;display:flex;gap:26px;}
+  nav ul a{
+    font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);
+    text-decoration:none;transition:color .15s;position:relative;padding-bottom:2px;
+  }
+  nav ul a::after{
+    content:'';position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--accent);transition:width .2s;
+  }
   nav ul a:hover{color:var(--ink);}
+  nav ul a:hover::after{width:100%;}
 
   /* HERO */
-  .hero{padding:80px 0 64px;}
-  .hero .eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);
-    margin-bottom:16px;}
-  .hero h1{font-family:var(--serif);font-size:clamp(36px,6vw,64px);font-weight:900;
-    font-style:italic;letter-spacing:-0.03em;line-height:0.9;margin-bottom:20px;}
-  .hero h1 span{color:var(--accent);}
-  .hero .bio{font-size:15px;color:var(--muted);max-width:520px;line-height:1.7;margin-bottom:28px;}
-  .hero .bio b{color:var(--ink);}
-  .links{display:flex;gap:12px;flex-wrap:wrap;}
-  .link-btn{
-    font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
-    padding:10px 18px;border:1px solid var(--line);color:var(--muted);
-    text-decoration:none;transition:all 0.15s;
+  .hero{padding:104px 0 88px;}
+  .hero .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--line);padding:6px 12px;border-radius:100px;margin-bottom:28px;
   }
-  .link-btn:hover{border-color:var(--ink);color:var(--ink);}
+  .hero .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2.2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(63,217,126,0.5);}50%{opacity:.6;box-shadow:0 0 0 5px rgba(63,217,126,0);}}
+  .hero h1{
+    font-family:var(--serif);font-weight:900;font-style:italic;
+    font-size:clamp(44px,8vw,84px);line-height:0.92;letter-spacing:-0.035em;margin-bottom:28px;
+  }
+  .hero h1 span{color:var(--accent);}
+  .hero .bio{font-size:14px;color:var(--muted);max-width:540px;line-height:1.8;margin-bottom:36px;}
+  .hero .bio b{color:var(--ink);font-weight:500;}
+  .hero .bio .cert{color:var(--amber);}
+  .links{display:flex;gap:10px;flex-wrap:wrap;}
+  .link-btn{
+    font-size:10px;letter-spacing:0.16em;text-transform:uppercase;
+    padding:12px 20px;border:1px solid var(--line-strong);color:var(--muted);
+    text-decoration:none;transition:all .15s;border-radius:2px;
+  }
+  .link-btn:hover{border-color:var(--ink);color:var(--ink);transform:translateY(-1px);}
   .link-btn.primary{border-color:var(--accent);color:var(--accent);}
   .link-btn.primary:hover{background:var(--accent);color:#fff;}
 
   /* SECTIONS */
-  section{padding:56px 0;border-top:1px solid var(--line);}
-  .section-head{margin-bottom:32px;}
-  .section-head .num{font-family:var(--serif);font-style:italic;font-size:13px;
-    color:var(--accent);margin-bottom:4px;}
-  .section-head h2{font-family:var(--serif);font-size:28px;font-weight:700;letter-spacing:-0.02em;}
-  .section-head p{font-size:12px;color:var(--muted);margin-top:6px;}
+  section{padding:72px 0;border-top:1px solid var(--line);}
+  .section-head{display:flex;align-items:baseline;gap:16px;margin-bottom:40px;}
+  .section-head .num{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--accent);}
+  .section-head h2{font-family:var(--serif);font-size:30px;font-weight:600;letter-spacing:-0.02em;}
+  .section-head .note{font-size:11px;color:var(--faint);margin-left:auto;text-align:right;}
 
-  /* PROJECT CARDS */
-  .projects-grid{display:grid;gap:16px;}
+  /* PROJECTS */
+  .projects-grid{display:grid;gap:14px;}
   .project-card{
-    background:var(--panel);border:1px solid var(--line);padding:24px;
-    display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;
-    transition:border-color 0.15s;position:relative;overflow:hidden;
+    background:var(--panel);border:1px solid var(--line);border-radius:4px;
+    padding:26px 28px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;
+    transition:border-color .2s,background .2s,transform .2s;position:relative;
   }
-  .project-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;}
-  .project-card.live::before{background:var(--green);}
-  .project-card.building::before{background:var(--accent2);}
-  .project-card.paused::before{background:var(--muted);}
-  .project-card.killed::before{background:rgba(107,101,96,0.4);}
-  .project-card:hover{border-color:rgba(245,241,232,0.2);}
-
-  .proj-name{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:5px;}
-  .proj-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px;max-width:560px;}
+  .project-card:hover{border-color:var(--line-strong);background:var(--panel-hover);transform:translateY(-2px);}
+  .proj-status{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:9px;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:12px;
+  }
+  .proj-status .dot{width:6px;height:6px;border-radius:50%;}
+  .proj-status.live{color:var(--green);}
+  .proj-status.live .dot{background:var(--green);animation:pulse 2.2s infinite;}
+  .proj-status.building{color:var(--amber);}
+  .proj-status.building .dot{background:var(--amber);}
+  .proj-name{font-family:var(--serif);font-size:21px;font-weight:600;margin-bottom:8px;letter-spacing:-0.01em;}
+  .proj-desc{font-size:12.5px;color:var(--muted);line-height:1.75;margin-bottom:16px;max-width:560px;}
   .tags{display:flex;gap:6px;flex-wrap:wrap;}
-  .tag{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;
-    padding:3px 8px;border:1px solid var(--line);color:var(--muted);}
-  .tag.tech{color:var(--accent2);border-color:rgba(212,255,0,0.2);}
-  .tag.status-live{color:var(--green);border-color:rgba(74,222,128,0.3);}
-  .tag.status-building{color:var(--accent2);border-color:rgba(212,255,0,0.3);}
-  .tag.status-paused{color:var(--muted);border-color:var(--line);}
-  .tag.status-killed{color:rgba(107,101,96,0.6);border-color:var(--line);}
-
-  .proj-links{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
-  .proj-link{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
-    color:var(--muted);text-decoration:none;transition:color 0.15s;white-space:nowrap;}
-  .proj-link:hover{color:var(--ink);}
-  .proj-link.dead{opacity:0.4;pointer-events:none;}
-
-  .killed-note{
-    margin-top:10px;font-size:11px;color:rgba(107,101,96,0.7);
-    border-left:1px solid var(--line);padding-left:10px;line-height:1.5;
-    font-style:italic;
+  .tag{
+    font-size:9px;letter-spacing:0.12em;text-transform:uppercase;
+    padding:4px 9px;border:1px solid var(--line);color:var(--muted);border-radius:2px;
   }
+  .proj-links{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
+  .proj-link{
+    font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);
+    text-decoration:none;transition:color .15s;white-space:nowrap;
+  }
+  .proj-link:hover{color:var(--accent);}
 
   /* SKILLS */
-  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  .skill-group{background:var(--panel);border:1px solid var(--line);padding:18px;}
-  .skill-group h3{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;
-    color:var(--accent);margin-bottom:12px;}
+  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .skill-group{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:22px;}
+  .skill-group h3{
+    font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);
+    margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line);
+  }
   .skill-list{list-style:none;}
-  .skill-list li{font-size:12px;color:var(--muted);padding:5px 0;
-    border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;}
-  .skill-list li:last-child{border:none;}
-  .skill-list .level{font-size:10px;color:var(--ink);}
+  .skill-list li{
+    font-size:12px;color:var(--muted);padding:7px 0;
+    display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  }
+  .skill-list .level{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);white-space:nowrap;}
+  .skill-list .level.hot{color:var(--amber);}
 
   /* CONTACT */
-  .contact-box{background:var(--panel);border:1px solid var(--line);padding:32px;
-    display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;}
-  .contact-box h3{font-family:var(--serif);font-size:22px;font-weight:600;margin-bottom:6px;}
-  .contact-box p{font-size:12px;color:var(--muted);line-height:1.6;}
+  .contact-box{
+    background:linear-gradient(135deg,var(--panel) 0%,#1a1210 100%);
+    border:1px solid var(--line-strong);border-radius:4px;padding:40px;
+    display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;
+  }
+  .contact-box h3{font-family:var(--serif);font-style:italic;font-size:26px;font-weight:600;margin-bottom:10px;letter-spacing:-0.01em;}
+  .contact-box p{font-size:12px;color:var(--muted);line-height:1.75;max-width:400px;}
   .contact-links{display:flex;flex-direction:column;gap:10px;align-items:flex-end;}
 
-  /* FOOTER */
-  footer{border-top:1px solid var(--line);padding:24px 0;
-    display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--muted);}
+  footer{
+    border-top:1px solid var(--line);padding:28px 0 40px;
+    display:flex;justify-content:space-between;align-items:center;font-size:10.5px;color:var(--faint);
+  }
+  footer a{color:var(--faint);}
+  footer a:hover{color:var(--muted);}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 
   @media(max-width:700px){
-    .project-card{grid-template-columns:1fr;}
+    .hero{padding:72px 0 64px;}
+    .project-card{grid-template-columns:1fr;padding:22px;}
     .proj-links{flex-direction:row;align-items:flex-start;}
     .skills-grid{grid-template-columns:1fr;}
-    .contact-box{grid-template-columns:1fr;}
+    .contact-box{grid-template-columns:1fr;padding:28px;}
     .contact-links{align-items:flex-start;}
-    nav ul{gap:14px;}
+    nav ul{gap:16px;}
+    .section-head .note{display:none;}
   }
 </style>
 </head>
 <body>
+<div class="bg-glow"></div>
 
 <nav>
   <div class="inner">
-    <a class="name" href="#">M.<span>Shalihin</span></a>
+    <a class="name" href="#">M.<em>Shalihin</em></a>
     <ul>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -146,34 +185,35 @@
 <div class="wrap">
 
   <!-- HERO -->
-  <section class="hero" style="border:none;padding-top:72px;">
-    <div class="eyebrow">Singapore · Builder · Lab Technologist</div>
+  <section class="hero" style="border:none;">
+    <div class="eyebrow"><span class="dot"></span>Singapore · Builder · Lab Technologist</div>
     <h1>Muhammad<br/><span>Shalihin.</span></h1>
     <p class="bio">
-      IT Infrastructure specialist at <b>NUS School of Computing</b>, <b>AWS Certified Solutions Architect – Associate</b>.
-      I build things on the side — web apps, mobile apps, and tools that solve real problems for real communities.
-      Currently validating a halal F&B discovery platform.
+      IT Infrastructure specialist at <b>NUS School of Computing</b> ·
+      <b class="cert">AWS Certified Solutions Architect – Associate</b>.
+      I build things on the side — web apps, mobile apps, and tools that solve
+      real problems for real communities. Currently validating a halal F&B discovery platform.
     </p>
     <div class="links">
       <a class="link-btn primary" href="mailto:muhammadshalihin@gmail.com">Get in touch</a>
-      <a class="link-btn" href="https://www.linkedin.com/in/muhammad-shalihin-ab-latif-0263889b/" target="_blank">LinkedIn</a>
-      <a class="link-btn" href="https://github.com/hashashino" target="_blank">GitHub</a>
+      <a class="link-btn" href="https://www.linkedin.com/in/muhammad-shalihin-ab-latif-0263889b/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="link-btn" href="https://github.com/hashashino" target="_blank" rel="noopener">GitHub</a>
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="num">01</div>
       <h2>Projects</h2>
-      <p>Things I've built. Some live, some learning exercises, some killed intentionally.</p>
+      <div class="note">some live · some learning<br/>some killed intentionally</div>
     </div>
 
     <div class="projects-grid">
 
-      <!-- HALALNEARME -->
-      <div class="project-card live">
+      <div class="project-card reveal">
         <div>
+          <div class="proj-status live"><span class="dot"></span>Live MVP</div>
           <div class="proj-name">HalalNearMe SG</div>
           <div class="proj-desc">
             Discovery and listing platform for MUIS-certified halal F&B in Singapore.
@@ -182,23 +222,18 @@
             photo/video uploads.
           </div>
           <div class="tags">
-            <span class="tag tech">Flask</span>
-            <span class="tag tech">React</span>
-            <span class="tag tech">Python</span>
-            <span class="tag tech">Railway</span>
-            <span class="tag tech">Vercel</span>
-            <span class="tag tech">PayNow</span>
-            <span class="tag status-live">Live MVP</span>
+            <span class="tag">Flask</span><span class="tag">React</span><span class="tag">Python</span>
+            <span class="tag">Railway</span><span class="tag">Vercel</span><span class="tag">PayNow</span>
           </div>
         </div>
         <div class="proj-links">
-          <a class="proj-link" href="https://github.com/hashashino" target="_blank">GitHub ↗</a>
+          <a class="proj-link" href="https://github.com/hashashino" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
       </div>
 
-      <!-- QIBLAAR -->
-      <div class="project-card building">
+      <div class="project-card reveal">
         <div>
+          <div class="proj-status building"><span class="dot"></span>In Development</div>
           <div class="proj-name">QiblaAR</div>
           <div class="proj-desc">
             Augmented reality Qibla direction app for Android. Uses sensor fusion and AR overlay
@@ -206,57 +241,52 @@
             centers, and Muslim travelers. v1.9, build 12 — active development.
           </div>
           <div class="tags">
-            <span class="tag tech">Android</span>
-            <span class="tag tech">Kotlin</span>
-            <span class="tag tech">ARCore</span>
-            <span class="tag tech">Sensor Fusion</span>
-            <span class="tag status-building">In Development</span>
+            <span class="tag">Android</span><span class="tag">Kotlin</span>
+            <span class="tag">ARCore</span><span class="tag">Sensor Fusion</span>
           </div>
         </div>
         <div class="proj-links">
-          <a class="proj-link" href="https://github.com/hashashino" target="_blank">GitHub ↗</a>
+          <a class="proj-link" href="https://github.com/hashashino" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
       </div>
-
-      <!-- PLACEHOLDER — add more projects here -->
 
     </div>
   </section>
 
   <!-- SKILLS -->
   <section id="skills">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="num">02</div>
       <h2>Skills</h2>
-      <p>What I actually use, not a keyword list for recruiters.</p>
+      <div class="note">what I actually use —<br/>not a keyword list</div>
     </div>
 
     <div class="skills-grid">
-      <div class="skill-group">
+      <div class="skill-group reveal">
         <h3>Backend & APIs</h3>
         <ul class="skill-list">
           <li>Python / Flask <span class="level">Production</span></li>
           <li>REST API design <span class="level">Production</span></li>
           <li>SQLite / PostgreSQL <span class="level">Comfortable</span></li>
-          <li>Railway / Render deploy <span class="level">Comfortable</span></li>
+          <li>Railway / Render <span class="level">Comfortable</span></li>
         </ul>
       </div>
-      <div class="skill-group">
+      <div class="skill-group reveal">
         <h3>Frontend & Mobile</h3>
         <ul class="skill-list">
           <li>React <span class="level">Production</span></li>
           <li>Android / Kotlin <span class="level">Production</span></li>
           <li>ARCore / Sensor Fusion <span class="level">Comfortable</span></li>
-          <li>Vercel deploy <span class="level">Comfortable</span></li>
+          <li>Vercel <span class="level">Comfortable</span></li>
         </ul>
       </div>
-      <div class="skill-group">
+      <div class="skill-group reveal">
         <h3>Infrastructure & Cloud</h3>
         <ul class="skill-list">
           <li>IT infrastructure ops <span class="level">Professional</span></li>
           <li>Network admin <span class="level">Professional</span></li>
           <li>Linux / Windows Server <span class="level">Professional</span></li>
-          <li>AWS <span class="level">SAA-C03 Certified</span></li>
+          <li>AWS <span class="level hot">SAA-C03 Certified</span></li>
         </ul>
       </div>
     </div>
@@ -264,30 +294,37 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="num">03</div>
       <h2>Get in touch</h2>
     </div>
-    <div class="contact-box">
+    <div class="contact-box reveal">
       <div>
         <h3>Open to interesting problems.</h3>
         <p>
-          Freelance projects, consulting, collaboration, or just a conversation about something you're building.
-          Based in Singapore, work globally.
+          Freelance projects, consulting, collaboration, or just a conversation about
+          something you're building. Based in Singapore, work globally.
         </p>
       </div>
       <div class="contact-links">
         <a class="link-btn primary" href="mailto:muhammadshalihin@gmail.com">muhammadshalihin@gmail.com</a>
-        <a class="link-btn" href="https://www.linkedin.com/in/muhammad-shalihin-ab-latif-0263889b/" target="_blank">LinkedIn</a>
+        <a class="link-btn" href="https://www.linkedin.com/in/muhammad-shalihin-ab-latif-0263889b/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </section>
 
   <footer>
     <span>Muhammad Shalihin · Singapore</span>
-    <span>Built by hand · <a href="https://github.com/hashashino/hashashino.github.io" target="_blank" style="color:var(--muted)">Source</a></span>
+    <span>Built by hand · <a href="https://github.com/hashashino/hashashino.github.io" target="_blank" rel="noopener">Source</a></span>
   </footer>
 
 </div>
+
+<script>
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 </body>
 </html>
