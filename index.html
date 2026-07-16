@@ -99,11 +99,12 @@
     font-size:11px;font-weight:500;padding:4px 11px;border-radius:100px;
     background:var(--paper2);color:var(--muted);
   }
+  .proj-links{display:flex;flex-direction:column;gap:8px;align-items:flex-end;padding-top:4px;}
   .proj-link{
-    font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;
-    white-space:nowrap;padding-top:4px;
+    font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;white-space:nowrap;
   }
   .proj-link:hover{text-decoration:underline;}
+  .proj-link.secondary{color:var(--faint);}
 
   /* SKILLS */
   .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
@@ -149,7 +150,7 @@
     .stat:last-child{border-bottom:none;}
     .project{grid-template-columns:1fr;gap:8px;}
     .proj-index{display:none;}
-    .proj-link{padding-top:0;}
+    .proj-links{flex-direction:row;align-items:flex-start;padding-top:0;}
     .skills-grid{grid-template-columns:1fr;gap:32px;}
     .section-head .note{display:none;}
     nav ul{gap:18px;}
@@ -185,7 +186,7 @@
     <div class="stats">
       <div class="stat"><div class="val">13 yrs</div><div class="lbl">IT infrastructure</div></div>
       <div class="stat"><div class="val">SAA-C03</div><div class="lbl">AWS certified</div></div>
-      <div class="stat"><div class="val">2</div><div class="lbl">Products shipped</div></div>
+      <div class="stat"><div class="val">2</div><div class="lbl">Products live</div></div>
     </div>
 
     <div class="links">
@@ -206,6 +207,27 @@
     <div class="project reveal">
       <div class="proj-index">i.</div>
       <div>
+        <div class="proj-status live"><span class="dot"></span>Live on Google Play</div>
+        <div class="proj-name">Qibla AR</div>
+        <div class="proj-desc">
+          Augmented reality Qibla direction app for Android. AR camera overlay, 2D compass,
+          and a gyro-lock mode that detects magnetic interference (hospitals, offices, heavy
+          wiring) and keeps the direction accurate where ordinary compass apps fail.
+          Fully offline, no ads, no data collected.
+        </div>
+        <div class="tags">
+          <span class="tag">Android</span><span class="tag">Kotlin</span>
+          <span class="tag">ARCore</span><span class="tag">Sensor Fusion</span>
+        </div>
+      </div>
+      <div class="proj-links">
+        <a class="proj-link" href="https://play.google.com/store/apps/details?id=com.hashashino.qiblaar" target="_blank" rel="noopener">Google Play ↗</a>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <div class="proj-index">ii.</div>
+      <div>
         <div class="proj-status live"><span class="dot"></span>Live MVP</div>
         <div class="proj-name">HalalNearMe SG</div>
         <div class="proj-desc">
@@ -219,25 +241,9 @@
           <span class="tag">Railway</span><span class="tag">Vercel</span><span class="tag">PayNow</span>
         </div>
       </div>
-      <a class="proj-link" href="https://github.com/hashashino" target="_blank" rel="noopener">GitHub ↗</a>
-    </div>
-
-    <div class="project reveal">
-      <div class="proj-index">ii.</div>
-      <div>
-        <div class="proj-status building"><span class="dot"></span>In development</div>
-        <div class="proj-name">QiblaAR</div>
-        <div class="proj-desc">
-          Augmented reality Qibla direction app for Android. Sensor fusion and AR overlay
-          show the exact direction of Mecca from any location. Built for mosques,
-          Islamic centers, and Muslim travelers. v1.9, build 12 — active development.
-        </div>
-        <div class="tags">
-          <span class="tag">Android</span><span class="tag">Kotlin</span>
-          <span class="tag">ARCore</span><span class="tag">Sensor Fusion</span>
-        </div>
+      <div class="proj-links">
+        <a class="proj-link" href="https://github.com/hashashino" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
-      <a class="proj-link" href="https://github.com/hashashino" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </section>
 
@@ -273,7 +279,7 @@
         <ul class="skill-list">
           <li>React <span class="level">Production</span></li>
           <li>Android / Kotlin <span class="level">Production</span></li>
-          <li>ARCore / Sensor Fusion <span class="level">Comfortable</span></li>
+          <li>ARCore / Sensor Fusion <span class="level">Production</span></li>
           <li>Vercel <span class="level">Comfortable</span></li>
         </ul>
       </div>
